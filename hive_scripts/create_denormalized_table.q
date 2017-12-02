@@ -1,3 +1,5 @@
+use amazon;
+
 CREATE TABLE products_reviews_orc (
   asin STRING,
   name STRING,

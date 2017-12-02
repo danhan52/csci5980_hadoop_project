@@ -1,3 +1,5 @@
+use amazon;
+
 -- create people table
 CREATE TABLE people_orc (
   reviewerID STRING,

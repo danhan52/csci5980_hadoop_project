@@ -1,3 +1,4 @@
+use amazon;
 
 -- create people table
 CREATE EXTERNAL TABLE people_csv (
