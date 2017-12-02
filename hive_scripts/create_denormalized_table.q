@@ -1,3 +1,4 @@
+set hive.execution.engine=mr;
 use amazon;
 
 CREATE TABLE products_reviews_orc (
