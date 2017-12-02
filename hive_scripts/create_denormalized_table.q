@@ -2,8 +2,8 @@ set hive.execution.engine=mr;
 use amazon;
 
 CREATE TABLE products_reviews_orc (
-  asin STRING,
-  name STRING,
+asin STRING,
+name STRING,
 price INT,
 imURL STRING,
 brand STRING,
@@ -15,13 +15,12 @@ reviewText STRING,
 summary STRING,
 helpful0 INT,
 helpful1 INT
- 
 )
 STORED AS ORC;
  
 INSERT INTO TABLE products_reviews_orc
 SELECT p.asin,
-  p.name,
+p.name,
 p.price,
 p.imURL,
 p.brand,
@@ -34,4 +33,4 @@ r.summary,
 r.helpful0,
 r.helpful1
 FROM products_orc p
-LEFT JOIN reviews_orc  r on (p.asin=r.asin);
+LEFT JOIN reviews_orc r on (p.asin=r.asin);
