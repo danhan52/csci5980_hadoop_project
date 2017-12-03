@@ -1,7 +1,7 @@
-<workflow-app name="CreateDataTables" xmlns="uri:oozie:workflow:0.2">
+<workflow-app name="CreateDataTables" xmlns="uri:oozie:workflow:0.1">
 	<start to="CreateDatabase"/>
 	<action name="CreateDatabase">
-		<hive xmlns="uri:oozie:workflow:0.2">
+		<hive xmlns="uri:oozie:hive-action:0.2">
 			<job-tracker>$34.239.83.24:8021</job-tracker>
 			<name-node>$34.239.83.24:8020</name-node>
 			<script>create_database.q</script>
@@ -10,7 +10,7 @@
 		<error to="fail"/>
 	</action>
 	<action name="CreateExternal">
-		<hive xmlns="uri:oozie:workflow:0.2">
+		<hive xmlns="uri:oozie:hive-action:0.2">
 			<job-tracker>$34.239.83.24:8021</job-tracker>
 			<name-node>$34.239.83.24:8020</name-node>
 			<script>create_external_tables.q</script>
@@ -19,7 +19,7 @@
 		<error to="fail"/>
 	</action>
 	<action name="CreateManaged">
-		<hive xmlns="uri:oozie:workflow:0.2">
+		<hive xmlns="uri:oozie:hive-action:0.2">
 			<job-tracker>$34.239.83.24:8021</job-tracker>
 			<name-node>$34.239.83.24:8020</name-node>
 			<script>create_managed_tables.q</script>
@@ -28,7 +28,7 @@
 		<error to="fail"/>
 	</action>
 	<action name="CreateDenormalized">
-		<hive xmlns="uri:oozie:workflow:0.2">
+		<hive xmlns="uri:oozie:hive-action:0.2">
 			<job-tracker>$34.239.83.24:8021</job-tracker>
 			<name-node>$34.239.83.24:8020</name-node>
 			<script>create_denormalized_table.q</script>
