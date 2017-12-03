@@ -1,4 +1,4 @@
-<workflow-app name="CreateDataTables" xmlns="uri:oozie:workflow:0.1">
+<workflow-app name="CreateDataTables" xmlns="uri:oozie:workflow:0.2">
 	<start to="CreateDatabase"/>
 	<action name="CreateDatabase">
 		<hive xmlns="uri:oozie:workflow:0.2">
