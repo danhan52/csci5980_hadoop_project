@@ -1,0 +1,45 @@
+<workflow-app name="CreateDataTables" xmlns="uri:oozie:workflow:0.1">
+	<start to="CreateDatabase"/>
+	<action name="CreateDatabase">
+		<hive xmlns="uri:oozie:workflow:0.2">
+			<job-tracker>$34.239.83.24:8021</job-tracker>
+			<name-node>$34.239.83.24:8020</name-node>
+			<script>create_database.q</script>
+		</hive>
+		<ok to="CreateExternal"/>
+		<error to="fail"/>
+	</action>
+	<action name="CreateExternal">
+		<hive xmlns="uri:oozie:workflow:0.3">
+			<job-tracker>$34.239.83.24:8021</job-tracker>
+			<name-node>$34.239.83.24:8020</name-node>
+			<script>create_external_tables.q</script>
+		</hive>
+		<ok to="CreateManaged"/>
+		<error to="fail"/>
+	</action>
+	<action name="CreateManaged">
+		<hive xmlns="uri:oozie:workflow:0.4">
+			<job-tracker>$34.239.83.24:8021</job-tracker>
+			<name-node>$34.239.83.24:8020</name-node>
+			<script>create_managed_tables.q</script>
+		</hive>
+		<ok to="CreateDenormalized"/>
+		<error to="fail"/>
+	</action>
+	<action name="CreateDenormalized">
+		<hive xmlns="uri:oozie:workflow:0.5">
+			<job-tracker>$34.239.83.24:8021</job-tracker>
+			<name-node>$34.239.83.24:8020</name-node>
+			<script>create_denormalized_table.q</script>
+		</hive>
+		<ok to="end"/>
+		<error to="fail"/>
+	</action>
+	<action>
+		<kill name="fail">
+			<message>Hive failed, error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+		</kill>
+	</action>
+	<end name="end"/>
+</workflow-app>

@@ -33,4 +33,4 @@ r.summary,
 r.helpful0,
 r.helpful1
 FROM products_orc p
-LEFT OUTER JOIN reviews_orc r on (p.asin=r.asin);
+LEFT JOIN reviews_orc r on (p.asin=r.asin);
