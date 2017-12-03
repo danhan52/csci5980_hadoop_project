@@ -10,6 +10,6 @@
 </property>
 <property>
         <name>oozie.wf.application.path</name>
-        <value>/user/my_user/some_dir/workflow.xml</value>
+        <value>/user/root/data_workflow/workflow.xml</value>
 </property>
 </configuration>
